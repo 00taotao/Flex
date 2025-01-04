@@ -1,0 +1,4 @@
+EMNIST download link: https://biometrics.nist.gov/cs_links/EMNIST/gzip.zip
+Cloth dataset download link: https://github.com/alexeygrigorev/clothing-dataset/archive/refs/heads/master.zip
+Imagenet-tiny download link: https://cs231n.stanford.edu/tiny-imagenet-200.zip
+The rest is the dataset that comes with PyTorch.
