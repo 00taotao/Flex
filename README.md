@@ -12,8 +12,7 @@ to distill the two parts of the network in different proportions to achieve rapi
 
 
 ## Getting Started
-### Prerequisites
-## Requirements
+### Requirements
 | Package     | Version      |
 |-------------|--------------|
 | torch       | 1.12.1+cu113 |
