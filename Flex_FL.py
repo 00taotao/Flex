@@ -32,8 +32,8 @@ if __name__ == '__main__':
     print("-------Allocate dataset-------")
     if args.dataset == 'mnist':
         trans_mnist = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
-        dataset_train = datasets.MNIST('../data/mnist/', train=True, download=True, transform=trans_mnist)
-        dataset_test = datasets.MNIST('../data/mnist/', train=False, download=True, transform=trans_mnist)
+        dataset_train = datasets.MNIST('./data/mnist/', train=True, download=True, transform=trans_mnist)
+        dataset_test = datasets.MNIST('./data/mnist/', train=False, download=True, transform=trans_mnist)
         # sample users
         if args.iid:
             dict_users = mnist_iid(dataset_train, args.num_users)
@@ -53,16 +53,16 @@ if __name__ == '__main__':
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
 
-        dataset_train = datasets.CIFAR10('../data/cifar', train=True, download=True, transform=transform_train)
-        dataset_test = datasets.CIFAR10('../data/cifar', train=False, download=True, transform=transform_test)
+        dataset_train = datasets.CIFAR10('./data/cifar', train=True, download=True, transform=transform_train)
+        dataset_test = datasets.CIFAR10('./data/cifar', train=False, download=True, transform=transform_test)
         if args.iid:
             dict_users = cifar_iid(dataset_train, args.num_users)
         else:
             exit('Error: only consider IID setting in CIFAR10')
     elif args.dataset == 'fmnist':
         transform = transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.2860,) ,(0.3205,))])
-        dataset_train = datasets.FashionMNIST('../data/fmnist/', train=True, download=True, transform=transform)
-        dataset_test = datasets.FashionMNIST('../data/fmnist/', train=False, download=True, transform=transform)
+        dataset_train = datasets.FashionMNIST('./data/fmnist/', train=True, download=True, transform=transform)
+        dataset_test = datasets.FashionMNIST('./data/fmnist/', train=False, download=True, transform=transform)
         # sample users 分配数据集
         if args.iid:
             dict_users = fmnist_iid(dataset_train, args.num_users)
@@ -82,8 +82,8 @@ if __name__ == '__main__':
             transforms.Normalize((0.5071, 0.4865, 0.4409), (0.2673, 0.2564, 0.2762))
         ])
 
-        dataset_train = datasets.CIFAR100('../data/cifar100', train=True, download=True, transform=transform_train)
-        dataset_test = datasets.CIFAR100('../data/cifar100', train=False, download=True, transform=transform_test)
+        dataset_train = datasets.CIFAR100('./data/cifar100', train=True, download=True, transform=transform_train)
+        dataset_test = datasets.CIFAR100('./data/cifar100', train=False, download=True, transform=transform_test)
         if args.iid:
             dict_users = cifar_iid(dataset_train, args.num_users)
         else:

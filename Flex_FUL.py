@@ -26,8 +26,8 @@ if __name__ == '__main__':
     print("---------Load dataset---------")
     if args.dataset == 'mnist':
         trans_mnist = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
-        dataset_test = datasets.MNIST('../data/mnist/', train=False, download=True, transform=trans_mnist)
-        dataset_FD = EMNISTDataset('../data/emnist/EMNIST/raw/', split='balanced', train=True, transform=trans_mnist)
+        dataset_test = datasets.MNIST('./data/mnist/', train=False, download=True, transform=trans_mnist)
+        dataset_FD = EMNISTDataset('./data/emnist/EMNIST/raw/', split='balanced', train=True, transform=trans_mnist)
     elif args.dataset == 'cifar10':
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),  # 先四周填充0，在吧图像随机裁剪成32*32
@@ -39,8 +39,8 @@ if __name__ == '__main__':
             transforms.ToTensor(),
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
-        dataset_test = datasets.CIFAR10('../data/cifar', train=False, download=True, transform=transform_test)
-        dataset_FD = datasets.CIFAR100('../data/cifar100', train=True, download=True, transform=transform_train)
+        dataset_test = datasets.CIFAR10('./data/cifar', train=False, download=True, transform=transform_test)
+        dataset_FD = datasets.CIFAR100('./data/cifar100', train=True, download=True, transform=transform_train)
     elif args.dataset == 'fmnist':
         transform = transforms.Compose([
             transforms.ToTensor(),
@@ -51,8 +51,8 @@ if __name__ == '__main__':
             transforms.RandomHorizontalFlip(),  # 图像一半的概率翻转，一半的概率不翻转
             transforms.ToTensor(),
             transforms.Normalize((0.2860,) ,(0.3205,))])
-        dataset_test = datasets.FashionMNIST('../data/fmnist/', train=False, download=True, transform=transform)
-        dataset_FD = ClothingDataset_whole('../data/clothing-dataset-master/images', transform=transform2)
+        dataset_test = datasets.FashionMNIST('./data/fmnist/', train=False, download=True, transform=transform)
+        dataset_FD = ClothingDataset_whole('./data/clothing-dataset-master/images', transform=transform2)
     elif args.dataset == 'cifar100':
         transform = transforms.Compose([
             # 图片从64*64缩小到32*32
@@ -68,8 +68,8 @@ if __name__ == '__main__':
         ])
 
         # dataset_train = datasets.CIFAR100('../data/cifar100', train=True, download=True, transform=transform_train)
-        dataset_FD = TinyImageNet('../data/tiny-imagenet-200', train=True, transform=transform)
-        dataset_test = datasets.CIFAR100('../data/cifar100', train=False, download=True, transform=transform_test)
+        dataset_FD = TinyImageNet('./data/tiny-imagenet-200', train=True, transform=transform)
+        dataset_test = datasets.CIFAR100('./data/cifar100', train=False, download=True, transform=transform_test)
     else:
         exit('Error: unrecognized dataset')
 

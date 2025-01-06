@@ -52,15 +52,3 @@ def FedAvg_noniid_float(w, client_data_sizes):
             w_avg[k] += w[i][k].float() * (float(client_data_sizes[i])/ total_data)
 
     return w_avg
-
-def minus_value(w1,w2):
-    w_avg = copy.deepcopy(w1)
-    for k in w_avg.keys():
-        w_avg[k] = w1[k] - w2[k]
-    return w_avg
-
-def add_value(w1,w2):
-    w_avg = copy.deepcopy(w1)
-    for k in w_avg.keys():
-        w_avg[k] = w1[k] + w2[k]
-    return w_avg
